@@ -1,3 +1,6 @@
+
+/---Base Styles--\
+
 body {
   margin: 0;
   font-family: Arial;
@@ -17,6 +20,8 @@ header h1 {
   font-weight: bold;
   margin-bottom: 10px;
 }
+
+/---Navigation---\
 
 nav ul {
   list-style-type: none;
@@ -48,6 +53,8 @@ nav ul li a:hover {
   list-style: none;
   padding: 0;
 }
+
+/---Main Content---\
 
 main {
   max-width: 900px;
@@ -83,6 +90,8 @@ section h2 {
   color: #2c3e50;
 }
 
+/---Styling for Table---\
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -111,6 +120,8 @@ tfoot td {
   font-style: italic;
   background-color: #f4f4f4;
 }
+
+/---Contact Form---\
 
 .contact-form {
   display: flex;
@@ -156,6 +167,8 @@ tfoot td {
   color: #000000;
 }
 
+/---Footer---\
+
 footer {
   text-align: center;
   font-size: 0.9em;
@@ -164,7 +177,9 @@ footer {
   padding: 15px;
 }
 
-@media (min-width: 320px) {
+/---Responsive Design for other Devices---\
+
+@media (min-width: 320px) {   /---Phone---\
   nav ul {
     flex-direction: column;
     align-items: center;
@@ -175,7 +190,7 @@ footer {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) {   /---Tablet---\
   nav ul {
     flex-direction: row;
   }
@@ -185,7 +200,7 @@ footer {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1024px) {   /---Desktop---\
   main {
     max-width: 1100px;
   }
