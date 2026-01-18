@@ -9,99 +9,111 @@
 <title>Asher's Homepage</title>
 
 <link rel="stylesheet" href="styles.css">
-
 </head>
 
 <body>
 
 <header>
-<h1>Welcome to My GitHub Homepage</h1>
+  <h1>Welcome to My GitHub Homepage</h1>
 
-<nav>
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
+  <nav>
+    <ul class="nav-menu">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 </header>
 
-<main>
+<main class="main-content">
 
-<section id="about">
-<h2>About</h2>
-<p>
-This website was created as part of a project assignment to demonstrate
-basic HTML structure and webpage organization.
-</p>
-</section>
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      This website was created as part of a project assignment to demonstrate
+      basic HTML structure and webpage organization.
+    </p>
+  </section>
 
-<section id="projects">
-<table>
-<caption>Sample Project Portfolio</caption>
+  <section id="projects">
+    <table>
+      <caption>Sample Project Portfolio</caption>
 
-<colgroup>
-<col style="background-color: #f0f8ff;">
-<col>
-<col style="background-color: #f0f8ff;">
-</colgroup>
+      <colgroup>
+        <col style="background-color: #f0f8ff;">
+        <col>
+        <col style="background-color: #f0f8ff;">
+      </colgroup>
 
-<thead>
-<tr>
-<th>Project Name</th>
-<th>Description</th>
-<th>Preview</th>
-</tr>
-</thead>
+      <thead>
+        <tr>
+          <th>Project Name</th>
+          <th>Description</th>
+          <th>Preview</th>
+        </tr>
+      </thead>
 
-<tbody>
-<tr>
-<td>HTML Portfolio</td>
-<td>
-A personal website demonstrating HTML structure,
-navigation, and accessibility practices.
-</td>
-<td>
-<img src="placeholder.png" alt="HTML project preview" width="150">
-</td>
-</tr>
+      <tbody>
+        <tr>
+          <td>HTML Portfolio</td>
+          <td>
+            A personal website demonstrating HTML structure,
+            navigation, and accessibility practices.
+          </td>
+          <td>
+            <img src="placeholder.png" alt="HTML project preview" width="150">
+          </td>
+        </tr>
 
-<tr>
-<td>CSS Layout Project</td>
-<td>
-A layout-focused project using CSS Grid to create
-responsive page designs.
-</td>
-<td>
-<img src="placeholder.png" alt="CSS Layout project preview" width="150">
-</td>
-</tr>
-</tbody>
+        <tr>
+          <td>CSS Layout Project</td>
+          <td>
+            A layout-focused project using CSS Grid to create
+            responsive page designs.
+          </td>
+          <td>
+            <img src="placeholder.png" alt="CSS Layout project preview" width="150">
+          </td>
+        </tr>
+      </tbody>
 
-<tfoot>
-<tr>
-<td></td>
-<td>More projects will be added in the future.</td>
-<td></td>
-</tr>
-</tfoot>
+      <tfoot>
+        <tr>
+          <td></td>
+          <td>More projects will be added in the future.</td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+  </section>
 
-</table>
-</section>
+  <section id="contact">
+    <h2>Contact</h2>
 
-<section id="contact">
-<h2>Contact</h2>
-<p>
-You can reach me through my GitHub profile or future contact links added here.
-</p>
-</section>
+    <form class="contact-form" action="#" method="post">
+      
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject">
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5"></textarea>
+
+      <input type="submit" value="Send Message">
+
+    </form>
+  </section>
 
 </main>
-  
+
 <footer>
-<p>&copy; 2025 Asher Macdonald.</p>
+  <p>&copy; 2025 Asher Macdonald.</p>
 </footer>
 
 </body>
 </html>
-
