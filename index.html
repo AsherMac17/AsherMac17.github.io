@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Asher's Webpage</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Asher's Webpage</h1>
+        <p id="welcomeMessage">Welcome to my webpage!</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            My name is Asher, and I am a software development student.
+            I am learning programming languages such as Python, HTML, CSS, and JavaScript.
+            I enjoy learning new technical skills and building projects that help me improve as a developer.
+        </p>
+    </section>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+        <p>Here are three projects I have worked on.</p>
+
+        <div class="projects">
+
+            <div class="project">
+                <a href="https://github.com/AsherMac17/placeholder">
+                    <img src="https://placehold.co/250x140?text=placeholder"
+                         alt="PlaceHolder Project">
+                </a>
+                <h3>PlaceHolder Project</h3>
+                <p>placeholder</p>
+            </div>
+
+            <div class="project">
+                <a href="https://github.com/AsherMac17/Final-Project-Python">
+                    <img src="https://placehold.co/250x140?text=Python+Project"
+                         alt="Python Excel Spreadsheet Project">
+                </a>
+                <h3>Python Excel Project</h3>
+                <p>A project using Python to work with data and charts.</p>
+            </div>
+
+            <div class="project">
+                <a href="https://github.com/AsherMac17/Weigh-Out-There-Project/tree/main">
+                    <img src="https://placehold.co/250x140?text=Web+Project"
+                         alt="HTML, CSS, and JS website Project">
+                </a>
+                <h3>Website Project</h3>
+                <p>A website created using HTML CSS,and JavaScript.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Fill out the form below to get in touch with me.</p>
+
+        <form action="mailto:ashmac9358@students.ecpi.edu" method="post"
+              enctype="text/plain">
+
+            <label for="senderName">Name:</label>
+            <input type="text" id="senderName" name="Name" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="Email" required>
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="Subject" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="Message" rows="5"
+                      required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Asher's Webpage</p>
+    </footer>
+
+    <script>
+        let userName = prompt("What is your name?");
+
+        if (userName && userName.trim() !== "") {
+            document.getElementById("welcomeMessage").textContent =
+                "Welcome to my webpage, " + userName + "!";
+        }
+    </script>
+</body>
+</html>
