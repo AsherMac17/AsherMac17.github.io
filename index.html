@@ -13,6 +13,11 @@
 
 <body>
 
+    <div class="theme-control">
+        <label for="darkMode">Dark Mode:</label>
+        <input type="checkbox" id="darkMode">
+    </div>
+
     <header>
         <h1>Asher's Webpage</h1>
         <p id="welcomeMessage">Welcome to my webpage!</p>
@@ -21,6 +26,7 @@
     <nav>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#featured">Featured Content</a>
         <a href="#contact">Contact</a>
     </nav>
 
@@ -31,6 +37,9 @@
             I am learning programming languages such as Python, HTML, CSS, and JavaScript.
             I enjoy learning new technical skills and building projects that help me improve as a developer.
         </p>
+
+        <h3>Skills and Technologies</h3>
+        <ul id="skillsList"></ul>
     </section>
 
     <section id="projects">
@@ -39,14 +48,7 @@
 
         <div class="projects">
 
-            <div class="project">
-                <a href="https://github.com/AsherMac17/placeholder">
-                    <img src="https://placehold.co/250x140?text=placeholder"
-                         alt="PlaceHolder Project">
-                </a>
-                <h3>PlaceHolder Project</h3>
-                <p>placeholder</p>
-            </div>
+            
 
             <div class="project">
                 <a href="https://github.com/AsherMac17/Final-Project-Python">
@@ -65,15 +67,47 @@
                 <h3>Website Project</h3>
                 <p>A website created using HTML CSS,and JavaScript.</p>
             </div>
-
         </div>
+
+    </section>
+
+    <section id="featured">
+
+        <h2>Featured Content</h2>
+
+        <div id="universityResources" class="featured-box">
+            <h3>University Resources</h3>
+            <p>
+                <a href="https://www.ecpi.edu/programs/software-development-bachelor-degree">
+                    ECPI University Software Development Program Home Page
+                </a>
+            </p>
+        </div>
+
+        <div id="personalProjects" class="featured-box">
+            <h3>Personal Projects</h3>
+            <p>Click an image to visit one of my project pages.</p>
+
+            <div class="featured-images">
+                <a href="https://github.com/AsherMac17/Final-Project-Python">
+                    <img src="https://placehold.co/200x110?text=Python+Project"
+                         alt="Python Excel Spreadsheet project">
+                </a>
+
+                <a href="https://github.com/AsherMac17/Weigh-Out-There-Project/tree/main">
+                    <img src="https://placehold.co/200x110?text=Web+Project"
+                         alt="HTML, CSS, and JS website Project">
+                </a>
+            </div>
+        </div>
+
     </section>
 
     <section id="contact">
         <h2>Contact Me</h2>
         <p>Fill out the form below to get in touch with me.</p>
 
-        <form action="mailto:ashmac9358@students.ecpi.edu" method="post"
+        <form id="contactForm" action="mailto:ashmac9358@students.ecpi.edu" method="post"
               enctype="text/plain">
 
             <label for="senderName">Name:</label>
@@ -97,13 +131,60 @@
         <p>&copy; 2026 Asher's Webpage</p>
     </footer>
 
-    <script> //prompts the user for their name and then greets them at the top.
+    <script> //prompts the user for their name and then greets them at the top
         let userName = prompt("What is your name?");
 
         if (userName && userName.trim() !== "") {
             document.getElementById("welcomeMessage").textContent =
                 "Welcome to my webpage, " + userName + "!";
         }
+        
+        //Creates a list of skills using a for loop
+        let skills = ["HTML", "CSS", "JavaScript", "Python", "Git", "GitHub"];
+        let skillsList = document.getElementById("skillsList");
+
+        for (let i = 0; i < skills.length; i++) {
+            let listItem = document.createElement("li");
+            listItem.textContent = skills[i];
+            skillsList.appendChild(listItem);
+        }
+
+        //Toggles dark mode when the checkbox changes
+        document.getElementById("darkMode").addEventListener("change", function () {
+            document.body.classList.toggle("dark-mode", this.checked);
+        });
+
+         //Prevents the page from refreshing and displays a confirmation
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById("senderName").value.trim();
+
+            if (this.checkValidity()) {
+                alert("Thank you, " + name + ", your message has been sent!");
+
+                this.reset();
+            } else {
+                this.reportValidity();
+            }
+        });
+
+        // Shows featured content based on the number of projects.
+        let projectCount = document.querySelectorAll("#projects .project").length;
+
+        let universityResources = document.getElementById("universityResources");
+        let personalProjects = document.getElementById("personalProjects");
+
+        console.log("Projects counted:", projectCount);
+
+        if (projectCount >= 3) {
+            universityResources.style.display = "none";
+        } else {
+            universityResources.style.display = "block";
+        }
+
+        personalProjects.style.display = "block";
+
     </script>
 </body>
 </html>
