@@ -43,8 +43,8 @@
     </section>
 
     <section id="projects">
-        <h2>My Projects</h2>
-        <p>Here are three projects I have worked on.</p>
+        <h2 id="projectsHeading">My Projects</h2>
+        <p>Here are two projects I have worked on.</p>
 
         <div class="projects">
 
@@ -68,6 +68,8 @@
                 <p>A website created using HTML CSS,and JavaScript.</p>
             </div>
         </div>
+
+        <div id="newProjectSection"></div>
 
     </section>
 
@@ -124,6 +126,8 @@
                       required></textarea>
 
             <button type="submit">Send Message</button>
+
+            <p id="formStatus" aria-live="polite"></p>
         </form>
     </section>
 
@@ -154,22 +158,46 @@
             document.body.classList.toggle("dark-mode", this.checked);
         });
 
-         //Prevents the page from refreshing and displays a confirmation
+        //Creates and adds a new project paragraph
+        let newProject = document.createElement("p");
+
+        newProject.textContent =
+            "New Project in the works: I am continuing to practice JavaScript and DOM manipulation.";
+
+        document.getElementById("newProjectSection").appendChild(newProject);
+
+        document.querySelector("#projectsHeading").style.color = "#2563eb";
+
+        document.getElementById("welcomeMessage").style.fontWeight = "bold";
+
+        //Prevents the page from refreshing and displays a confirmation
         document.getElementById("contactForm").addEventListener("submit", function(event) {
             event.preventDefault();
 
-            let name = document.getElementById("senderName").value.trim();
-
             if (this.checkValidity()) {
-                alert("Thank you, " + name + ", your message has been sent!");
+                let name = document.getElementById("senderName").value.trim();
+                let formStatus = document.getElementById("formStatus");
 
-                this.reset();
+                //Displays a loading message
+                formStatus.textContent = "Sending message...";
+                formStatus.style.color = "#b45309";
+
+                //Waits 2.5 seconds before displaying confirmation
+                setTimeout(function() {
+                    formStatus.textContent =
+                        "Message sent successfully! Thank you. ";
+
+                    formStatus.style.color = "#15803d";
+
+                    document.getElementById("contactForm").reset();
+                }, 2500);
+
             } else {
                 this.reportValidity();
             }
         });
 
-        // Shows featured content based on the number of projects.
+        //Shows featured content based on the number of projects.
         let projectCount = document.querySelectorAll("#projects .project").length;
 
         let universityResources = document.getElementById("universityResources");
