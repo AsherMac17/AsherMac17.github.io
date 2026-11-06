@@ -131,6 +131,38 @@ body.dark-mode textarea {
     border: 1px solid #777;
 }
 
+body.dark-mode header {
+    background-color: #111827;
+    color: white;
+}
+
+body.dark-mode nav {
+    background-color: #0f172a;
+}
+
+body.dark-mode nav a {
+    color: white;
+}
+
+body.dark-mode footer {
+    background-color: #333;
+    color: white;
+}
+
+body.dark-mode button {
+    background-color: #555;
+    color: white;
+}
+
+body.dark-mode button:hover {
+    background-color: #666;
+}
+
+body.dark-mode .modal-content {
+    background-color: #f4f4f4;
+    color: #222;
+}
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -165,6 +197,7 @@ body.dark-mode textarea {
 .tooltip-button:hover::after {
     content: attr(data-tooltip);
     position: absolute;
+    display: block;
     bottom: 125%;
     left: 50%;
     transform: translateX(-50%);
@@ -174,5 +207,6 @@ body.dark-mode textarea {
     border-radius: 5px;
     white-space: nowrap;
     font-size: 13px;
-    z-index: 10;
+    z-index: 1000;
+    pointer-events: none;
 }
