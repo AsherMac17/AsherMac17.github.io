@@ -28,7 +28,7 @@
 
     <header>
         <h1>Asher's Webpage</h1>
-        <p id="welcomeMessage">Welcome to my webpage!</p>
+        <p id="welcomeMessage">Welcome to my webpage! Here I showcase projects I have worked on so far.</p>
     </header>
 
     <nav>
@@ -52,30 +52,9 @@
 
     <section id="projects">
         <h2 id="projectsHeading">My Projects</h2>
-        <p>Here are two projects I have worked on.</p>
+        <p>Here are three projects I have worked on.</p>
 
-        <div class="projects">
-
-            
-
-            <div class="project">
-                <a href="https://github.com/AsherMac17/Final-Project-Python">
-                    <img src="https://placehold.co/250x140?text=Python+Project"
-                         alt="Python Excel Spreadsheet Project">
-                </a>
-                <h3>Python Excel Project</h3>
-                <p>A project using Python to work with data and charts.</p>
-            </div>
-
-            <div class="project">
-                <a href="https://github.com/AsherMac17/Weigh-Out-There-Project/tree/main">
-                    <img src="https://placehold.co/250x140?text=Web+Project"
-                         alt="HTML, CSS, and JS website Project">
-                </a>
-                <h3>Website Project</h3>
-                <p>A website created using HTML CSS,and JavaScript.</p>
-            </div>
-        </div>
+        <div class="projects" id="projectsContainer"></div>
 
         <div id="newProjectSection"></div>
 
@@ -100,13 +79,18 @@
 
             <div class="featured-images">
                 <a href="https://github.com/AsherMac17/Final-Project-Python">
-                    <img src="https://placehold.co/200x110?text=Python+Project"
+                    <img src="images/pythonexcel.png"
                          alt="Python Excel Spreadsheet project">
                 </a>
 
                 <a href="https://github.com/AsherMac17/Weigh-Out-There-Project/tree/main">
-                    <img src="https://placehold.co/200x110?text=Web+Project"
+                    <img src="images/weightoutthere.png"
                          alt="HTML, CSS, and JS website Project">
+                </a>
+
+                <a href="https://github.com/AsherMac17/AsherMac17.github.io">
+                    <img src="https://placehold.co/200x165?text=Portfolio+Website"
+                         alt="My personal portfolio website built to display my projects I have worked on so far.">
                 </a>
             </div>
         </div>
@@ -182,6 +166,70 @@
                 localStorage.setItem("darkMode", "disabled");
             }
         });
+
+        let project1 = {
+            title: "Python Excel Project",
+            summary: "A project using Python to work with data and charts.",
+            imageURL: "images/pythonexcel.png",
+            repositoryURL: "https://github.com/AsherMac17/Final-Project-Python"
+        };
+
+        let project2 = {
+            title: "Website Project - Weight Out There",
+            summary: "A website created using HTML, CSS, and JavaScript.",
+            imageURL: "images/weightoutthere.png",
+            repositoryURL: "https://github.com/AsherMac17/Weigh-Out-There-Project"
+        };
+
+        let project3 = {
+            title: "Portfolio Website",
+            summary: "My personal portfolio website built to display my projects I have worked on so far. (You're on it)",
+            imageURL: "https://placehold.co/200x165?text=Portfolio+Website",
+            repositoryURL: "https://github.com/AsherMac17/AsherMac17.github.io"
+        };
+        
+        //Stores the project objects in an array
+        let projectsArray = [project1, project2, project3];
+
+        //Saves the project array in session storage
+        let savedProjects = sessionStorage.getItem("projects");
+
+        if (savedProjects === null) {
+            sessionStorage.setItem("projects", JSON.stringify(projectsArray));
+        } else {
+            projectsArray = JSON.parse(savedProjects);
+        }
+
+        //Selects the project container
+        let projectsContainer = document.querySelector("#projectsContainer");
+
+        //Loops through the array and builds each project card
+        for (let i = 0; i < projectsArray.length; i++) {
+            let projectCard = document.createElement("div");
+            projectCard.className = "project";
+
+            let projectLink = document.createElement("a");
+            projectLink.href = projectsArray[i].repositoryURL;
+            projectLink.target = "_blank";
+            projectLink.rel = "noopener noreferrer";
+
+            let projectImage = document.createElement("img");
+            projectImage.src = projectsArray[i].imageURL;
+            projectImage.alt = projectsArray[i].title;
+
+            let projectTitle = document.createElement("h3");
+            projectTitle.textContent = projectsArray[i].title;
+
+            let projectSummary = document.createElement("p");
+            projectSummary.textContent = projectsArray[i].summary;
+
+            projectLink.appendChild(projectImage);
+            projectCard.appendChild(projectLink);
+            projectCard.appendChild(projectTitle);
+            projectCard.appendChild(projectSummary);
+
+            projectsContainer.appendChild(projectCard);
+        }
 
         //Creates and adds a new project paragraph
         let newProject = document.createElement("p");
